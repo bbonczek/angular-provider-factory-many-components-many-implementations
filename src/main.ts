@@ -22,10 +22,12 @@ import { AvailableGreetings, GreetingFactory } from './greeting.factory';
   template: `
     <h1>Hello world</h1>
     <greeting-component></greeting-component>
-    <greeting-component chosenGreeting="pl"></greeting-component>
+    <greeting-component [factory]="GreetingFactory" chosenGreeting="pl"></greeting-component>
     <greeting-component chosenGreeting="en"></greeting-component>
   `,
 })
-export class App {}
+export class App {
+  GreetingFactory = GreetingFactory;
+}
 
 bootstrapApplication(App);

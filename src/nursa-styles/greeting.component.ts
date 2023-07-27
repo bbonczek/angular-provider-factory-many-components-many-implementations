@@ -10,6 +10,10 @@ import { GREETING_SOURCE } from './greeting.token';
   standalone: true,
 })
 export class GreetingComponent<T> {
+  @Input() set factory(value: (service: ChooseGreetingService<T>) => Greeting) {
+    this.greetingSource = value(this.chooseGreetingService);
+  }
+
   @Input() set chosenGreeting(value: T) {
     this.chooseGreetingService.chosenGreeting = value;
   }
